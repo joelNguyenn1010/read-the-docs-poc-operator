@@ -1,0 +1,7 @@
+Welcome to gumleaf's documentation!
+===================================
+
+.. toctree::
+   :caption: Operators
+
+    {0}

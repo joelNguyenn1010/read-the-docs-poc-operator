@@ -28,7 +28,8 @@ author = 'gumleaf'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'myst_parser'
+    'myst_parser',
+    'sphinx.ext.autodoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,3 +52,22 @@ html_theme = 'press'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+from subprocess import check_output
+import json
+
+operators = check_output(['php', '-r', 'echo json_encode(include "Operator.php");'])
+operators = json.loads(operators)
+for operator in operators:
+    try:
+        template = open("template.txt", "r")
+        content = template.read()
+        formatContent = [operator]
+        configTemplate = content.format(*formatContent)
+        operatorFile = open("./Operator/" + operator +".md", "x")
+        operatorFile.write(configTemplate)
+        operatorFile.close()
+    except:
+        print("look like file already exist, nothing to do here")
+    

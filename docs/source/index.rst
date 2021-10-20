@@ -7,5 +7,7 @@ Welcome to gumleaf's documentation!
 ===================================
 
 .. toctree::
+   :caption: Operator
 
-   Operator/index.md
+   Operator/ARRAY_MAP.md
+   Operator/ARRAY_UNION.md
