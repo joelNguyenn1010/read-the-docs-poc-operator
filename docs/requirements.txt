@@ -1,2 +1,4 @@
 myst_parser
-pydata_sphinx_theme
+sphinx-press-theme
+sphinx==3.0
+sphinxcontrib-phpdomain
